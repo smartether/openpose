@@ -335,6 +335,16 @@ int openPoseDemo()
         // Start, run & stop threads - it blocks this thread until all others have finished
         opWrapper.exec();
 
+
+		std::shared_ptr<std::vector<op::Datum>> info;
+		opWrapper.waitAndPop(info);
+		for (auto it = info->begin();it < info->end(); it++) {
+			auto person = it->poseKeypoints.getSize(0);
+			auto numberBodyParts = it->poseKeypoints.getSize(1);
+
+			auto posX = it->poseKeypoints[{0, 0, 0}];
+			auto posY = it->poseKeypoints[{0, 0, 1}];
+		}
         // // Option b) Keeping this thread free in case you want to do something else meanwhile, e.g. profiling the GPU
         // memory
         // // VERY IMPORTANT NOTE: if OpenCV is compiled with Qt support, this option will not work. Qt needs the main
