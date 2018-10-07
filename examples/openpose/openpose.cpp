@@ -333,17 +333,40 @@ int openPoseDemo()
         // Two different ways of running the program on multithread environment
         op::log("Starting thread(s)...", op::Priority::High);
         // Start, run & stop threads - it blocks this thread until all others have finished
-        opWrapper.exec();
+        //opWrapper.exec();
 
+		opWrapper.start();
+
+
+		const int partIdxRWrist = 4;
+		const int partIdxRElbow = 3;
+		const int partIdxRShoulder = 2;
+		int matchTimes = 1;
+		//int matchTime = 0;
 
 		std::shared_ptr<std::vector<op::Datum>> info;
-		opWrapper.waitAndPop(info);
-		for (auto it = info->begin();it < info->end(); it++) {
+		//opWrapper.waitAndPop(info);
+		for (auto it = info->begin(),end= info->end();it < end; it++) {
 			auto person = it->poseKeypoints.getSize(0);
 			auto numberBodyParts = it->poseKeypoints.getSize(1);
 
-			auto posX = it->poseKeypoints[{0, 0, 0}];
-			auto posY = it->poseKeypoints[{0, 0, 1}];
+			if (person > 0 && numberBodyParts > 10) {
+				auto posX = it->poseKeypoints[{0, partIdxRWrist, 0}];
+				auto posY = it->poseKeypoints[{0, partIdxRWrist, 1}];
+				auto score = it->poseKeypoints[{0, partIdxRWrist, 2}];
+
+				auto posRElbowX = it->poseKeypoints[{0, partIdxRElbow, 0}];
+				auto posRElbowY = it->poseKeypoints[{0, partIdxRElbow, 1}];
+				auto scoreRElbow = it->poseKeypoints[{0, partIdxRElbow, 2}];
+
+				auto posRShoulderX = it->poseKeypoints[{0, partIdxRShoulder, 0}];
+				auto posRShoulderY = it->poseKeypoints[{0, partIdxRShoulder, 1}];
+				auto scoreRShoulder = it->poseKeypoints[{0, partIdxRShoulder, 2}];
+
+				if (posY > posRElbowY && posRElbowY > posRShoulderY) {
+					matchTimes++;
+				}
+			}
 		}
         // // Option b) Keeping this thread free in case you want to do something else meanwhile, e.g. profiling the GPU
         // memory
