@@ -346,28 +346,35 @@ int openPoseDemo()
 
 		std::shared_ptr<std::vector<op::Datum>> info;
 		//opWrapper.waitAndPop(info);
-		for (auto it = info->begin(),end= info->end();it < end; it++) {
-			auto person = it->poseKeypoints.getSize(0);
-			auto numberBodyParts = it->poseKeypoints.getSize(1);
+		while (true)
+		{
+			for (auto it = info->begin(), end = info->end(); it < end; it++) {
+				auto person = it->poseKeypoints.getSize(0);
+				auto numberBodyParts = it->poseKeypoints.getSize(1);
 
-			if (person > 0 && numberBodyParts > 10) {
-				auto posX = it->poseKeypoints[{0, partIdxRWrist, 0}];
-				auto posY = it->poseKeypoints[{0, partIdxRWrist, 1}];
-				auto score = it->poseKeypoints[{0, partIdxRWrist, 2}];
+				if (person > 0 && numberBodyParts > 10) {
+					auto posX = it->poseKeypoints[{0, partIdxRWrist, 0}];
+					auto posY = it->poseKeypoints[{0, partIdxRWrist, 1}];
+					auto score = it->poseKeypoints[{0, partIdxRWrist, 2}];
 
-				auto posRElbowX = it->poseKeypoints[{0, partIdxRElbow, 0}];
-				auto posRElbowY = it->poseKeypoints[{0, partIdxRElbow, 1}];
-				auto scoreRElbow = it->poseKeypoints[{0, partIdxRElbow, 2}];
+					auto posRElbowX = it->poseKeypoints[{0, partIdxRElbow, 0}];
+					auto posRElbowY = it->poseKeypoints[{0, partIdxRElbow, 1}];
+					auto scoreRElbow = it->poseKeypoints[{0, partIdxRElbow, 2}];
 
-				auto posRShoulderX = it->poseKeypoints[{0, partIdxRShoulder, 0}];
-				auto posRShoulderY = it->poseKeypoints[{0, partIdxRShoulder, 1}];
-				auto scoreRShoulder = it->poseKeypoints[{0, partIdxRShoulder, 2}];
+					auto posRShoulderX = it->poseKeypoints[{0, partIdxRShoulder, 0}];
+					auto posRShoulderY = it->poseKeypoints[{0, partIdxRShoulder, 1}];
+					auto scoreRShoulder = it->poseKeypoints[{0, partIdxRShoulder, 2}];
 
-				if (posY > posRElbowY && posRElbowY > posRShoulderY) {
-					matchTimes++;
+					if (posY > posRElbowY && posRElbowY > posRShoulderY) {
+						matchTimes++;
+						op::log("$$ match once...", op::Priority::Normal);
+					}
 				}
 			}
+
+			std::this_thread::sleep_for(std::chrono::microseconds{ 10 });
 		}
+		opWrapper.stop();
         // // Option b) Keeping this thread free in case you want to do something else meanwhile, e.g. profiling the GPU
         // memory
         // // VERY IMPORTANT NOTE: if OpenCV is compiled with Qt support, this option will not work. Qt needs the main
