@@ -238,6 +238,77 @@ DEFINE_string(write_bvh,                "",             "Experimental, not avail
 DEFINE_string(udp_host,                 "",             "Experimental, not available yet. IP for UDP communication. E.g., `192.168.0.1`.");
 DEFINE_string(udp_port,                 "8051",         "Experimental, not available yet. Port number for UDP communication.");
 
+
+// This worker will just invert the image
+class MyPostProcessing : public op::Worker<std::shared_ptr<std::vector<op::Datum>>>
+{
+public:
+	MyPostProcessing()
+	{
+		// User's constructor here
+	}
+
+	void initializationOnThread() {}
+
+	void work(std::shared_ptr<std::vector<op::Datum>>& datumsPtr)
+	{
+		// User's post-processing (after OpenPose processing & before OpenPose outputs) here
+		// datum.cvOutputData: rendered frame with pose or heatmaps
+		// datum.poseKeypoints: Array<float> with the estimated pose
+		//try
+		//{
+		//	if (datumsPtr != nullptr && !datumsPtr->empty())
+		//		for (auto& datum : *datumsPtr)
+		//			cv::bitwise_not(datum.cvInputData, datum.cvOutputData);
+		//}
+		//catch (const std::exception& e)
+		//{
+		//	op::log("Some kind of unexpected error happened.");
+		//	this->stop();
+		//	op::error(e.what(), __LINE__, __FUNCTION__, __FILE__);
+		//}
+
+		const int partIdxRWrist = 4;
+		const int partIdxRElbow = 3;
+		const int partIdxRShoulder = 2;
+		int matchTimes = 1;
+		//int matchTime = 0;
+		auto info = datumsPtr;
+		//while (true)
+		{
+			op::log("$$ opWrapper loop...", op::Priority::High);
+			for (auto it = info->begin(), end = info->end(); it != end; it++) {
+				op::log("$$ opWrapper for loop...", op::Priority::High);
+
+				auto person = it->poseKeypoints.getSize(0);
+				auto numberBodyParts = it->poseKeypoints.getSize(1);
+
+				if (person > 0 && numberBodyParts > 10) {
+					auto posX = it->poseKeypoints[{0, partIdxRWrist, 0}];
+					auto posY = it->poseKeypoints[{0, partIdxRWrist, 1}];
+					auto score = it->poseKeypoints[{0, partIdxRWrist, 2}];
+
+					auto posRElbowX = it->poseKeypoints[{0, partIdxRElbow, 0}];
+					auto posRElbowY = it->poseKeypoints[{0, partIdxRElbow, 1}];
+					auto scoreRElbow = it->poseKeypoints[{0, partIdxRElbow, 2}];
+
+					auto posRShoulderX = it->poseKeypoints[{0, partIdxRShoulder, 0}];
+					auto posRShoulderY = it->poseKeypoints[{0, partIdxRShoulder, 1}];
+					auto scoreRShoulder = it->poseKeypoints[{0, partIdxRShoulder, 2}];
+
+					if (posY > posRElbowY && posRElbowY > posRShoulderY) {
+						matchTimes++;
+						op::log("$$ match once...", op::Priority::High);
+					}
+				}
+			}
+
+			std::this_thread::sleep_for(std::chrono::milliseconds{ 10 });
+		}
+
+	}
+};
+
 int openPoseDemo()
 {
     try
@@ -334,67 +405,51 @@ int openPoseDemo()
         op::log("Starting thread(s)...", op::Priority::High);
         // Start, run & stop threads - it blocks this thread until all others have finished
         //opWrapper.exec();
-
+		
+		
 		opWrapper.start();
 
+		op::log("$$ opWrapper.start", op::Priority::High);
 
-		const int partIdxRWrist = 4;
-		const int partIdxRElbow = 3;
-		const int partIdxRShoulder = 2;
-		int matchTimes = 1;
-		//int matchTime = 0;
 
-		std::shared_ptr<std::vector<op::Datum>> info;
-		//opWrapper.waitAndPop(info);
-		while (true)
-		{
-			for (auto it = info->begin(), end = info->end(); it < end; it++) {
-				auto person = it->poseKeypoints.getSize(0);
-				auto numberBodyParts = it->poseKeypoints.getSize(1);
 
-				if (person > 0 && numberBodyParts > 10) {
-					auto posX = it->poseKeypoints[{0, partIdxRWrist, 0}];
-					auto posY = it->poseKeypoints[{0, partIdxRWrist, 1}];
-					auto score = it->poseKeypoints[{0, partIdxRWrist, 2}];
+		auto worker = std::make_shared<MyPostProcessing>();
+		opWrapper.setWorkerPostProcessing(worker, true);
+		opWrapper.setWorkerOutput(worker, true);
 
-					auto posRElbowX = it->poseKeypoints[{0, partIdxRElbow, 0}];
-					auto posRElbowY = it->poseKeypoints[{0, partIdxRElbow, 1}];
-					auto scoreRElbow = it->poseKeypoints[{0, partIdxRElbow, 2}];
-
-					auto posRShoulderX = it->poseKeypoints[{0, partIdxRShoulder, 0}];
-					auto posRShoulderY = it->poseKeypoints[{0, partIdxRShoulder, 1}];
-					auto scoreRShoulder = it->poseKeypoints[{0, partIdxRShoulder, 2}];
-
-					if (posY > posRElbowY && posRElbowY > posRShoulderY) {
-						matchTimes++;
-						op::log("$$ match once...", op::Priority::Normal);
-					}
-				}
-			}
-
-			std::this_thread::sleep_for(std::chrono::microseconds{ 10 });
+		std::shared_ptr<std::vector<op::Datum>> info(new std::vector<op::Datum>());
+		
+		while (true) {
+			worker->checkAndWork(info);
+			std::this_thread::sleep_for(std::chrono::milliseconds{ 10 });
 		}
+
+		op::log("$$ opWrapper stop...", op::Priority::High);
 		opWrapper.stop();
+		
+		/*
+
         // // Option b) Keeping this thread free in case you want to do something else meanwhile, e.g. profiling the GPU
         // memory
         // // VERY IMPORTANT NOTE: if OpenCV is compiled with Qt support, this option will not work. Qt needs the main
         // // thread to plot visual results, so the final GUI (which uses OpenCV) would return an exception similar to:
         // // `QMetaMethod::invoke: Unable to invoke methods with return values in queued connections`
         // // Start threads
-        // opWrapper.start();
+         opWrapper.start();
         // // Profile used GPU memory
         //     // 1: wait ~10sec so the memory has been totally loaded on GPU
         //     // 2: profile the GPU memory
-        // const auto sleepTimeMs = 10;
-        // for (auto i = 0 ; i < 10000/sleepTimeMs && opWrapper.isRunning() ; i++)
-        //     std::this_thread::sleep_for(std::chrono::milliseconds{sleepTimeMs});
-        // op::Profiler::profileGpuMemory(__LINE__, __FUNCTION__, __FILE__);
-        // // Keep program alive while running threads
-        // while (opWrapper.isRunning())
-        //     std::this_thread::sleep_for(std::chrono::milliseconds{sleepTimeMs});
-        // // Stop and join threads
-        // op::log("Stopping thread(s)", op::Priority::High);
-        // opWrapper.stop();
+         const auto sleepTimeMs = 10;
+         for (auto i = 0 ; i < 10000/sleepTimeMs && opWrapper.isRunning() ; i++)
+             std::this_thread::sleep_for(std::chrono::milliseconds{sleepTimeMs});
+         op::Profiler::profileGpuMemory(__LINE__, __FUNCTION__, __FILE__);
+         // Keep program alive while running threads
+         while (opWrapper.isRunning())
+             std::this_thread::sleep_for(std::chrono::milliseconds{sleepTimeMs});
+         // Stop and join threads
+         op::log("Stopping thread(s)", op::Priority::High);
+         opWrapper.stop();
+		 */
 
         // Measuring total time
         const auto now = std::chrono::high_resolution_clock::now();
