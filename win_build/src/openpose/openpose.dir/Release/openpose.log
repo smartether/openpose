@@ -1,0 +1,308 @@
+﻿  cameraParameterReader.cpp
+  jointAngleEstimation.cpp
+  poseTriangulation.cpp
+  cameraParameterEstimation.cpp
+  gridPatternFunctions.cpp
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\type_traits(16707566): warning C4244: “参数”: 从“unsigned __int64”转换到“unsigned int”，可能丢失数据 (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\type_traits(16707566): note: 参见对正在编译的函数 模板 实例化“void std::_Invoker_functor::_Call<void(__cdecl *)(std::vector<cv::Point2f,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<_Ty,std::allocator<_Ty>>*,std::vector<std::_Vbase,std::allocator<std::_Vbase>>*,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>(_Callable &&,std::vector<_Ty,std::allocator<_Ty>> *&&,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *&&,int &&,int &&,int &&,unsigned __int64 &&,bool &&,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,cv::Size_<int> &&,cv::Size_<int> &&,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &&) noexcept(false)”的引用
+          with
+          [
+              _Ty=cv::Point2f,
+              _Callable=void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &)
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\thr\xthread(240): note: 参见对正在编译的函数 模板 实例化“void std::invoke<void(__cdecl *)(std::vector<cv::Point2f,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<_Ty,std::allocator<_Ty>>*,std::vector<std::_Vbase,std::allocator<std::_Vbase>>*,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>(_Callable &&,std::vector<_Ty,std::allocator<_Ty>> *&&,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *&&,int &&,int &&,int &&,unsigned __int64 &&,bool &&,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,cv::Size_<int> &&,cv::Size_<int> &&,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &&) noexcept(false)”的引用
+          with
+          [
+              _Ty=cv::Point2f,
+              _Callable=void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &)
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\thr\xthread(248): note: 参见对正在编译的函数 模板 实例化“void std::_LaunchPad<_Target>::_Execute<0,1,2,3,4,5,6,7,8,9,10,11>(std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<_Ty,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>> &,std::integer_sequence<unsigned __int64,0,1,2,3,4,5,6,7,8,9,10,11>)”的引用
+          with
+          [
+              _Target=std::unique_ptr<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>,std::default_delete<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>>>,
+              _Ty=cv::Point2f
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\thr\xthread(247): note: 参见对正在编译的函数 模板 实例化“void std::_LaunchPad<_Target>::_Execute<0,1,2,3,4,5,6,7,8,9,10,11>(std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<_Ty,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>> &,std::integer_sequence<unsigned __int64,0,1,2,3,4,5,6,7,8,9,10,11>)”的引用
+          with
+          [
+              _Target=std::unique_ptr<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>,std::default_delete<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>>>,
+              _Ty=cv::Point2f
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\thr\xthread(244): note: 编译 类 模板 成员函数 "void std::_LaunchPad<_Target>::_Run(std::_LaunchPad<_Target> *) noexcept" 时
+          with
+          [
+              _Target=std::unique_ptr<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>,std::default_delete<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>>>
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\thr\xthread(232): note: 参见对正在编译的函数 模板 实例化“void std::_LaunchPad<_Target>::_Run(std::_LaunchPad<_Target> *) noexcept”的引用
+          with
+          [
+              _Target=std::unique_ptr<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>,std::default_delete<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>>>
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\thr\xthread(259): note: 参见对正在编译的 类 模板 实例化 "std::_LaunchPad<_Target>" 的引用
+          with
+          [
+              _Target=std::unique_ptr<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>,std::default_delete<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>>>
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\thread(48): note: 参见对正在编译的函数 模板 实例化“void std::_Launch<std::unique_ptr<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<_Ty,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>,std::default_delete<std::tuple<void (__cdecl *)(std::vector<_Ty,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<_Ty,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>>>>(_Thrd_t *,_Target &&)”的引用
+          with
+          [
+              _Ty=cv::Point2f,
+              _Target=std::unique_ptr<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>,std::default_delete<std::tuple<void (__cdecl *)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned __int64,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,cv::Size_<int>,cv::Size_<int>,std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>>>>
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xmemory0(919): note: 参见对正在编译的函数 模板 实例化“std::thread::thread<void(__cdecl &)(std::vector<cv::Point2f,std::allocator<_Ty>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<_Ty,std::allocator<_Ty>>*&,std::vector<std::_Vbase,std::allocator<std::_Vbase>>*&,int&,const int&,const int&,const unsigned __int64&,const bool&,const std::string&,const cv::Size&,const cv::Size&,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>&,void>(_Fn,std::vector<_Ty,std::allocator<_Ty>> *&,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *&,int &,const int &,const int &,const unsigned __int64 &,const bool &,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &)”的引用
+          with
+          [
+              _Ty=cv::Point2f,
+              _Fn=void (__cdecl &)(std::vector<cv::Point2f,std::allocator<cv::Point2f>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &)
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\vector(968): note: 参见对正在编译的函数 模板 实例化“void std::_Default_allocator_traits<_Alloc>::construct<_Ty,void(__cdecl &)(std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point_<float>>>*&,std::vector<std::_Vbase,std::allocator<std::_Vbase>>*&,int&,const int&,const int&,const unsigned __int64&,const bool&,const std::string&,const cv::Size&,const cv::Size&,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>&>(_Alloc &,_Objty *const ,void (__cdecl &)(std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *&,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *&,int &,const int &,const int &,const unsigned __int64 &,const bool &,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &)”的引用
+          with
+          [
+              _Alloc=std::allocator<std::thread>,
+              _Ty=std::thread,
+              _Objty=std::thread
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\vector(968): note: 参见对正在编译的函数 模板 实例化“void std::_Default_allocator_traits<_Alloc>::construct<_Ty,void(__cdecl &)(std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point_<float>>>*&,std::vector<std::_Vbase,std::allocator<std::_Vbase>>*&,int&,const int&,const int&,const unsigned __int64&,const bool&,const std::string&,const cv::Size&,const cv::Size&,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>&>(_Alloc &,_Objty *const ,void (__cdecl &)(std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *&,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *&,int &,const int &,const int &,const unsigned __int64 &,const bool &,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &)”的引用
+          with
+          [
+              _Alloc=std::allocator<std::thread>,
+              _Ty=std::thread,
+              _Objty=std::thread
+          ] (编译源文件 D:\Source\openpose\src\openpose\calibration\cameraParameterEstimation.cpp)
+  d:\source\openpose\src\openpose\calibration\cameraparameterestimation.cpp(1245): note: 参见对正在编译的函数 模板 实例化“void std::vector<std::thread,std::allocator<_Ty>>::emplace_back<void(__cdecl &)(std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point_<float>>>*&,std::vector<std::_Vbase,std::allocator<std::_Vbase>>*&,int&,const int&,const T&,const unsigned __int64&,const bool&,const std::string&,const cv::Size&,const cv::Size&,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>>&>(void (__cdecl &)(std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *,int,int,int,unsigned int,bool,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &),std::vector<cv::Point2f,std::allocator<cv::Point_<float>>> *&,std::vector<std::_Vbase,std::allocator<std::_Vbase>> *&,int &,const int &,const T &,const unsigned __int64 &,const bool &,const std::string &,const cv::Size &,const cv::Size &,const std::vector<std::pair<cv::Mat,std::string>,std::allocator<std::pair<cv::Mat,std::string>>> &)”的引用
+          with
+          [
+              _Ty=std::thread,
+              T=int
+          ]
+  array.cpp
+  cvMatToOpInput.cpp
+  cvMatToOpOutput.cpp
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\numeric(25): warning C4267: “=”: 从“size_t”转换到“unsigned long”，可能丢失数据 (编译源文件 D:\Source\openpose\src\openpose\core\array.cpp)
+  d:\source\openpose\src\openpose\core\array.cpp(178): note: 参见对正在编译的函数 模板 实例化“_Ty std::accumulate<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int>>>,unsigned long,std::multiplies<::size_t>>(_InIt,const _InIt,_Ty,_Fn)”的引用
+          with
+          [
+              _Ty=unsigned long,
+              _InIt=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int>>>,
+              _Fn=std::multiplies<::size_t>
+          ]
+  d:\source\openpose\src\openpose\core\array.cpp(171): note: 编译 类 模板 成员函数 "void op::Array<char>::reset(const std::vector<int,std::allocator<_Ty>> &)" 时
+          with
+          [
+              _Ty=int
+          ]
+  d:\source\openpose\src\openpose\core\array.cpp(37): note: 参见对正在编译的函数 模板 实例化“void op::Array<char>::reset(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=int
+          ]
+  d:\source\openpose\src\openpose\core\array.cpp(534): note: 参见对正在编译的 类 模板 实例化 "op::Array<char>" 的引用
+  datum.cpp
+  gpuRenderer.cpp
+  keepTopNPeople.cpp
+  keypointScaler.cpp
+  opOutputToCvMat.cpp
+  point.cpp
+  rectangle.cpp
+  renderer.cpp
+  scaleAndSizeExtractor.cpp
+  faceDetector.cpp
+  faceDetectorOpenCV.cpp
+  faceExtractorCaffe.cpp
+  faceExtractorNet.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  faceCpuRenderer.cpp
+  faceGpuRenderer.cpp
+  faceRenderer.cpp
+  renderFace.cpp
+  bvhSaver.cpp
+  cocoJsonSaver.cpp
+  fileSaver.cpp
+  fileStream.cpp
+  heatMapSaver.cpp
+  imageSaver.cpp
+  jsonOfstream.cpp
+  keypointSaver.cpp
+  peopleJsonSaver.cpp
+  udpSender.cpp
+  videoSaver.cpp
+  cuda.cpp
+  gpu.cpp
+  opencl.cpp
+  frameDisplayer.cpp
+  gui.cpp
+  guiAdam.cpp
+  gui3D.cpp
+  guiInfoAdder.cpp
+  handDetector.cpp
+  handDetectorFromTxt.cpp
+  handExtractorCaffe.cpp
+  handExtractorNet.cpp
+  handCpuRenderer.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  handGpuRenderer.cpp
+  handRenderer.cpp
+  renderHand.cpp
+  maximumBase.cpp
+  maximumCaffe.cpp
+  netCaffe.cpp
+  nmsBase.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Unknown compiler version - please run the configure tests and report the results
+  nmsBaseCL.cpp
+  nmsCaffe.cpp
+  resizeAndMergeBase.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  resizeAndMergeBaseCL.cpp
+  resizeAndMergeCaffe.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  bodyPartConnectorBase.cpp
+  bodyPartConnectorCaffe.cpp
+  poseCpuRenderer.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  poseExtractor.cpp
+  poseExtractorCaffe.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  poseExtractorNet.cpp
+  poseGpuRenderer.cpp
+  poseParameters.cpp
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xmemory0(919): warning C4244: “初始化”: 从“const double”转换到“float”，可能丢失数据 (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xmemory(120): note: 参见对正在编译的函数 模板 实例化“void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const double&>(_Alloc &,_Objty *const ,const double &)”的引用
+          with
+          [
+              _Alloc=std::allocator<float>,
+              _Ty=float,
+              _Objty=float
+          ] (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xmemory(120): note: 参见对正在编译的函数 模板 实例化“void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const double&>(_Alloc &,_Objty *const ,const double &)”的引用
+          with
+          [
+              _Alloc=std::allocator<float>,
+              _Ty=float,
+              _Objty=float
+          ] (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xmemory(153): note: 参见对正在编译的函数 模板 实例化“_FwdIt std::_Uninitialized_copy_al_unchecked<_Iter,float*,_Alloc>(_InIt,_InIt,_FwdIt,_Alloc &,std::_General_ptr_iterator_tag,std::_Any_tag)”的引用
+          with
+          [
+              _FwdIt=float *,
+              _Iter=const double *,
+              _Alloc=std::allocator<float>,
+              _InIt=const double *
+          ] (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\vector(1924): note: 参见对正在编译的函数 模板 实例化“_FwdIt *std::_Uninitialized_copy<_Iter,float*,std::allocator<_Ty>>(_InIt,_InIt,_FwdIt,_Alloc &)”的引用
+          with
+          [
+              _FwdIt=float *,
+              _Iter=const double *,
+              _Ty=float,
+              _InIt=const double *,
+              _Alloc=std::allocator<float>
+          ] (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\vector(745): note: 参见对正在编译的函数 模板 实例化“float *std::vector<float,std::allocator<_Ty>>::_Ucopy<_Iter>(_Iter,_Iter,float *)”的引用
+          with
+          [
+              _Ty=float,
+              _Iter=const double *
+          ] (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\vector(745): note: 参见对正在编译的函数 模板 实例化“float *std::vector<float,std::allocator<_Ty>>::_Ucopy<_Iter>(_Iter,_Iter,float *)”的引用
+          with
+          [
+              _Ty=float,
+              _Iter=const double *
+          ] (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\vector(760): note: 参见对正在编译的函数 模板 实例化“void std::vector<float,std::allocator<_Ty>>::_Range_construct_or_tidy<const double*>(_Iter,_Iter,std::forward_iterator_tag)”的引用
+          with
+          [
+              _Ty=float,
+              _Iter=const double *
+          ] (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\vector(760): note: 参见对正在编译的函数 模板 实例化“void std::vector<float,std::allocator<_Ty>>::_Range_construct_or_tidy<const double*>(_Iter,_Iter,std::forward_iterator_tag)”的引用
+          with
+          [
+              _Ty=float,
+              _Iter=const double *
+          ] (编译源文件 D:\Source\openpose\src\openpose\pose\poseExtractorCaffe.cpp)
+  d:\source\openpose\src\openpose\pose\poseextractorcaffe.cpp(251): note: 参见对正在编译的函数 模板 实例化“std::vector<float,std::allocator<_Ty>>::vector<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<double>>>,void>(_Iter,_Iter,const _Alloc &)”的引用
+          with
+          [
+              _Ty=float,
+              _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<double>>>,
+              _Alloc=std::allocator<float>
+          ]
+  d:\source\openpose\src\openpose\pose\poseextractorcaffe.cpp(251): note: 参见对正在编译的函数 模板 实例化“std::vector<float,std::allocator<_Ty>>::vector<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<double>>>,void>(_Iter,_Iter,const _Alloc &)”的引用
+          with
+          [
+              _Ty=float,
+              _Iter=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<double>>>,
+              _Alloc=std::allocator<float>
+          ]
+  poseParametersRender.cpp
+  poseRenderer.cpp
+  renderPose.cpp
+  flirReader.cpp
+  imageDirectoryReader.cpp
+  ipCameraReader.cpp
+  producer.cpp
+  spinnakerWrapper.cpp
+  videoCaptureReader.cpp
+  videoReader.cpp
+  webcamReader.cpp
+  personIdExtractor.cpp
+  personTracker.cpp
+  pyramidalLK.cpp
+  errorAndLog.cpp
+  fileSystem.cpp
+  flagsToOpenPose.cpp
+  keypoint.cpp
+  openCv.cpp
+  profiler.cpp
+  string.cpp
+  wrapperAuxiliary.cpp
+  wrapperStructExtra.cpp
+  wrapperStructFace.cpp
+  wrapperStructHand.cpp
+  wrapperStructInput.cpp
+  wrapperStructOutput.cpp
+  wrapperStructPose.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+  defineTemplates.cpp
+    正在创建库 D:/Source/openpose/win_build/src/openpose/Release/openpose.lib 和对象 D:/Source/openpose/win_build/src/openpose/Release/openpose.exp
+  LINK : 已指定 /LTCG，但不需要生成代码；从链接命令行中移除 /LTCG 以提高链接器性能
+openpose_generated_resizeAndMergeBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?error@op@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H00@Z (void __cdecl op::error(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?error@op@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H00@Z (void __cdecl op::error(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_renderPose.cu.obj : warning LNK4049: 已导入本地定义的符号 ?error@op@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H00@Z (void __cdecl op::error(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_pyramidalLK.cu.obj : warning LNK4049: 已导入本地定义的符号 ?error@op@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H00@Z (void __cdecl op::error(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_renderFace.cu.obj : warning LNK4049: 已导入本地定义的符号 ?error@op@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H00@Z (void __cdecl op::error(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_renderHand.cu.obj : warning LNK4049: 已导入本地定义的符号 ?error@op@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H00@Z (void __cdecl op::error(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_maximumBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?error@op@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H00@Z (void __cdecl op::error(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_nmsBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?error@op@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H00@Z (void __cdecl op::error(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_resizeAndMergeBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?cudaCheck@op@@YAXHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z (void __cdecl op::cudaCheck(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?cudaCheck@op@@YAXHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z (void __cdecl op::cudaCheck(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_renderPose.cu.obj : warning LNK4049: 已导入本地定义的符号 ?cudaCheck@op@@YAXHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z (void __cdecl op::cudaCheck(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_renderFace.cu.obj : warning LNK4049: 已导入本地定义的符号 ?cudaCheck@op@@YAXHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z (void __cdecl op::cudaCheck(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_renderHand.cu.obj : warning LNK4049: 已导入本地定义的符号 ?cudaCheck@op@@YAXHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z (void __cdecl op::cudaCheck(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_maximumBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?cudaCheck@op@@YAXHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z (void __cdecl op::cudaCheck(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_nmsBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?cudaCheck@op@@YAXHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z (void __cdecl op::cudaCheck(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &))
+openpose_generated_renderFace.cu.obj : warning LNK4049: 已导入本地定义的符号 ?getNumberCudaThreadsAndBlocks@op@@YAXAEAUdim3@@0AEBU?$Point@H@1@@Z (void __cdecl op::getNumberCudaThreadsAndBlocks(struct dim3 &,struct dim3 &,struct op::Point<int> const &))
+openpose_generated_renderHand.cu.obj : warning LNK4049: 已导入本地定义的符号 ?getNumberCudaThreadsAndBlocks@op@@YAXAEAUdim3@@0AEBU?$Point@H@1@@Z (void __cdecl op::getNumberCudaThreadsAndBlocks(struct dim3 &,struct dim3 &,struct op::Point<int> const &))
+openpose_generated_renderPose.cu.obj : warning LNK4049: 已导入本地定义的符号 ?getNumberCudaThreadsAndBlocks@op@@YAXAEAUdim3@@0AEBU?$Point@H@1@@Z (void __cdecl op::getNumberCudaThreadsAndBlocks(struct dim3 &,struct dim3 &,struct op::Point<int> const &))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?getPoseNumberBodyParts@op@@YAIW4PoseModel@1@@Z (unsigned int __cdecl op::getPoseNumberBodyParts(enum op::PoseModel))
+openpose_generated_renderPose.cu.obj : warning LNK4049: 已导入本地定义的符号 ?getPoseNumberBodyParts@op@@YAIW4PoseModel@1@@Z (unsigned int __cdecl op::getPoseNumberBodyParts(enum op::PoseModel))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ?getPosePartPairs@op@@YAAEBV?$vector@IV?$allocator@I@std@@@std@@W4PoseModel@1@@Z (class std::vector<unsigned int,class std::allocator<unsigned int> > const & __cdecl op::getPosePartPairs(enum op::PoseModel))
+openpose_generated_renderPose.cu.obj : warning LNK4049: 已导入本地定义的符号 ?getPosePartPairs@op@@YAAEBV?$vector@IV?$allocator@I@std@@@std@@W4PoseModel@1@@Z (class std::vector<unsigned int,class std::allocator<unsigned int> > const & __cdecl op::getPosePartPairs(enum op::PoseModel))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ??$generateInitialSubsets@M@op@@YA?AV?$vector@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@V?$allocator@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@@2@@std@@QEBM0W4PoseModel@0@AEBU?$Point@H@0@HMMAEBV?$vector@IV?$allocator@I@std@@@2@IIIAEBV?$Array@M@0@@Z (class std::vector<struct std::pair<class std::vector<int,class std::allocator<int> >,double>,class std::allocator<struct std::pair<class std::vector<int,class std::allocator<int> >,double> > > __cdecl op::generateInitialSubsets<float>(float const * const,float const * const,enum op::PoseModel,struct op::Point<int> const &,int,float,float,class std::vector<unsigned int,class std::allocator<unsigned int> > const &,unsigned int,unsigned int,unsigned int,class op::Array<float> const &))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ??$removeSubsetsBelowThresholds@M@op@@YAXAEAV?$vector@HV?$allocator@H@std@@@std@@AEAHAEBV?$vector@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@V?$allocator@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@@2@@2@IIHMH@Z (void __cdecl op::removeSubsetsBelowThresholds<float>(class std::vector<int,class std::allocator<int> > &,int &,class std::vector<struct std::pair<class std::vector<int,class std::allocator<int> >,double>,class std::allocator<struct std::pair<class std::vector<int,class std::allocator<int> >,double> > > const &,unsigned int,unsigned int,int,float,int))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ??$subsetsToPoseKeypointsAndScores@M@op@@YAXAEAV?$Array@M@0@0MAEBV?$vector@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@V?$allocator@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@@2@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@QEBMHII@Z (void __cdecl op::subsetsToPoseKeypointsAndScores<float>(class op::Array<float> &,class op::Array<float> &,float,class std::vector<struct std::pair<class std::vector<int,class std::allocator<int> >,double>,class std::allocator<struct std::pair<class std::vector<int,class std::allocator<int> >,double> > > const &,class std::vector<int,class std::allocator<int> > const &,float const * const,int,unsigned int,unsigned int))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ??$generateInitialSubsets@N@op@@YA?AV?$vector@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@V?$allocator@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@@2@@std@@QEBN0W4PoseModel@0@AEBU?$Point@H@0@HNNAEBV?$vector@IV?$allocator@I@std@@@2@IIIAEBV?$Array@N@0@@Z (class std::vector<struct std::pair<class std::vector<int,class std::allocator<int> >,double>,class std::allocator<struct std::pair<class std::vector<int,class std::allocator<int> >,double> > > __cdecl op::generateInitialSubsets<double>(double const * const,double const * const,enum op::PoseModel,struct op::Point<int> const &,int,double,double,class std::vector<unsigned int,class std::allocator<unsigned int> > const &,unsigned int,unsigned int,unsigned int,class op::Array<double> const &))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ??$removeSubsetsBelowThresholds@N@op@@YAXAEAV?$vector@HV?$allocator@H@std@@@std@@AEAHAEBV?$vector@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@V?$allocator@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@@2@@2@IIHNH@Z (void __cdecl op::removeSubsetsBelowThresholds<double>(class std::vector<int,class std::allocator<int> > &,int &,class std::vector<struct std::pair<class std::vector<int,class std::allocator<int> >,double>,class std::allocator<struct std::pair<class std::vector<int,class std::allocator<int> >,double> > > const &,unsigned int,unsigned int,int,double,int))
+openpose_generated_bodyPartConnectorBase.cu.obj : warning LNK4049: 已导入本地定义的符号 ??$subsetsToPoseKeypointsAndScores@N@op@@YAXAEAV?$Array@N@0@0NAEBV?$vector@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@V?$allocator@U?$pair@V?$vector@HV?$allocator@H@std@@@std@@N@std@@@2@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@QEBNHII@Z (void __cdecl op::subsetsToPoseKeypointsAndScores<double>(class op::Array<double> &,class op::Array<double> &,double,class std::vector<struct std::pair<class std::vector<int,class std::allocator<int> >,double>,class std::allocator<struct std::pair<class std::vector<int,class std::allocator<int> >,double> > > const &,class std::vector<int,class std::allocator<int> > const &,double const * const,int,unsigned int,unsigned int))
+  openpose.vcxproj -> D:\Source\openpose\win_build\x64\Release\openpose.dll

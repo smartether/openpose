@@ -1,0 +1,17 @@
+D:/Source/openpose/win_build/CMakeFiles/ALL_BUILD.dir
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir
+D:/Source/openpose/win_build/examples/calibration/CMakeFiles/Calibration.dir
+D:/Source/openpose/win_build/examples/openpose/CMakeFiles/OpenPoseDemo.dir
+D:/Source/openpose/win_build/examples/tutorial_add_module/CMakeFiles/1_custom_post_processing.dir
+D:/Source/openpose/win_build/examples/tutorial_pose/CMakeFiles/1_extract_from_image.dir
+D:/Source/openpose/win_build/examples/tutorial_pose/CMakeFiles/2_extract_pose_or_heatmat_from_image.dir
+D:/Source/openpose/win_build/examples/tutorial_thread/CMakeFiles/1_openpose_read_and_display.dir
+D:/Source/openpose/win_build/examples/tutorial_thread/CMakeFiles/2_user_processing_function.dir
+D:/Source/openpose/win_build/examples/tutorial_thread/CMakeFiles/3_user_input_processing_and_output.dir
+D:/Source/openpose/win_build/examples/tutorial_thread/CMakeFiles/4_user_input_processing_output_and_datum.dir
+D:/Source/openpose/win_build/examples/tutorial_wrapper/CMakeFiles/1_user_synchronous_postprocessing.dir
+D:/Source/openpose/win_build/examples/tutorial_wrapper/CMakeFiles/2_user_synchronous_input.dir
+D:/Source/openpose/win_build/examples/tutorial_wrapper/CMakeFiles/3_user_synchronous_output.dir
+D:/Source/openpose/win_build/examples/tutorial_wrapper/CMakeFiles/4_user_synchronous_all.dir
+D:/Source/openpose/win_build/examples/tutorial_wrapper/CMakeFiles/5_user_asynchronous.dir
+D:/Source/openpose/win_build/examples/tutorial_wrapper/CMakeFiles/6_user_asynchronous_output.dir

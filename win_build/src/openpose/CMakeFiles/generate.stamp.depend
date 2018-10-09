@@ -1,0 +1,27 @@
+# CMake generation dependency list for this directory.
+D:/Source/openpose/src/openpose/CMakeLists.txt
+D:/Source/openpose/cmake/Utils.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/face/openpose_generated_renderFace.cu.obj.depend
+C:/Libs/cmake-3.11.1-win64-x64/share/cmake-3.11/Modules/FindCUDA/run_nvcc.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/hand/openpose_generated_renderHand.cu.obj.depend
+C:/Libs/cmake-3.11.1-win64-x64/share/cmake-3.11/Modules/FindCUDA/run_nvcc.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/net/openpose_generated_maximumBase.cu.obj.depend
+C:/Libs/cmake-3.11.1-win64-x64/share/cmake-3.11/Modules/FindCUDA/run_nvcc.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/net/openpose_generated_nmsBase.cu.obj.depend
+C:/Libs/cmake-3.11.1-win64-x64/share/cmake-3.11/Modules/FindCUDA/run_nvcc.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/net/openpose_generated_resizeAndMergeBase.cu.obj.depend
+C:/Libs/cmake-3.11.1-win64-x64/share/cmake-3.11/Modules/FindCUDA/run_nvcc.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/pose/openpose_generated_bodyPartConnectorBase.cu.obj.depend
+C:/Libs/cmake-3.11.1-win64-x64/share/cmake-3.11/Modules/FindCUDA/run_nvcc.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/pose/openpose_generated_renderPose.cu.obj.depend
+C:/Libs/cmake-3.11.1-win64-x64/share/cmake-3.11/Modules/FindCUDA/run_nvcc.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/tracking/openpose_generated_pyramidalLK.cu.obj.depend
+C:/Libs/cmake-3.11.1-win64-x64/share/cmake-3.11/Modules/FindCUDA/run_nvcc.cmake
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/face/openpose_generated_renderFace.cu.obj.cmake.pre-gen
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/hand/openpose_generated_renderHand.cu.obj.cmake.pre-gen
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/net/openpose_generated_maximumBase.cu.obj.cmake.pre-gen
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/net/openpose_generated_nmsBase.cu.obj.cmake.pre-gen
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/net/openpose_generated_resizeAndMergeBase.cu.obj.cmake.pre-gen
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/pose/openpose_generated_bodyPartConnectorBase.cu.obj.cmake.pre-gen
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/pose/openpose_generated_renderPose.cu.obj.cmake.pre-gen
+D:/Source/openpose/win_build/src/openpose/CMakeFiles/openpose.dir/tracking/openpose_generated_pyramidalLK.cu.obj.cmake.pre-gen
