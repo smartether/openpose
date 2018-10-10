@@ -306,14 +306,20 @@ public:
 						//×óÉÏ½ÇÎªanchor 
 						if (posY < posRElbowY && posRElbowY < posRShoulderY) {
 							matchTimes++;
-							op::log("$$ match once...", op::Priority::High);
+							op::log("$$ right hand raised !!!!!!", op::Priority::High);
+							op::log("$$ right hand raised !!!!!!", op::Priority::High);
+							op::log("$$ right hand raised !!!!!!", op::Priority::High);
+							op::log("$$ right hand raised !!!!!!", op::Priority::High);
+							op::log("$$ right hand raised !!!!!!", op::Priority::High);
 
 							op::log(std::string("$$ posY:").append(std::to_string(posY)).c_str(), op::Priority::High);
+							op::log(std::string("$$ posY score:").append(std::to_string(score)).c_str(), op::Priority::High);
 
 							op::log(std::string("$$ posRElbowY:").append(std::to_string(posRElbowY)).c_str(), op::Priority::High);
+							op::log(std::string("$$ posRElbowY score:").append(std::to_string(scoreRElbow)).c_str(), op::Priority::High);
 
 							op::log(std::string("$$ posRShoulderY:").append(std::to_string(posRShoulderY)).c_str(), op::Priority::High);
-							
+							op::log(std::string("$$ posRShoulderY score:").append(std::to_string(scoreRShoulder)).c_str(), op::Priority::High);
 						}
 					}
 				}
