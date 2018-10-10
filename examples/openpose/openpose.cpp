@@ -268,16 +268,59 @@ public:
 		//	op::error(e.what(), __LINE__, __FUNCTION__, __FILE__);
 		//}
 
+		// COCO识别模型中 右手在keypoints中的索引
 		const int partIdxRWrist = 4;
+		// COCO识别模型中 右前臂关节在keypoints中的索引
 		const int partIdxRElbow = 3;
+		// COCO识别模型中 右肩在keypoints中的索引
 		const int partIdxRShoulder = 2;
 		int matchTimes = 1;
 		//int matchTime = 0;
 		auto info = datumsPtr;
+
 		//while (true)
 		{
-			op::log("$$ opWrapper loop...", op::Priority::High);
-			for (auto it = info->begin(), end = info->end(); it != end; it++) {
+			//op::log("$$ opWrapper loop...", op::Priority::High);
+
+			if (datumsPtr != nullptr && !datumsPtr->empty()) {
+				for (auto& datum : *datumsPtr) {
+					auto person = datum.poseKeypoints.getSize(0);
+					auto numberBodyParts = datum.poseKeypoints.getSize(1);
+
+					if (person > 0 && numberBodyParts > 10) {
+						//拿到右手在图像中的位置
+						auto posX = datum.poseKeypoints[{0, partIdxRWrist, 0}];
+						auto posY = datum.poseKeypoints[{0, partIdxRWrist, 1}];
+						auto score = datum.poseKeypoints[{0, partIdxRWrist, 2}];
+
+						//拿到右前臂关节在图像中的位置
+						auto posRElbowX = datum.poseKeypoints[{0, partIdxRElbow, 0}];
+						auto posRElbowY = datum.poseKeypoints[{0, partIdxRElbow, 1}];
+						auto scoreRElbow = datum.poseKeypoints[{0, partIdxRElbow, 2}];
+
+						//拿到右肩在图像中的位置
+						auto posRShoulderX = datum.poseKeypoints[{0, partIdxRShoulder, 0}];
+						auto posRShoulderY = datum.poseKeypoints[{0, partIdxRShoulder, 1}];
+						auto scoreRShoulder = datum.poseKeypoints[{0, partIdxRShoulder, 2}];
+
+						//左上角为anchor 
+						if (posY < posRElbowY && posRElbowY < posRShoulderY) {
+							matchTimes++;
+							op::log("$$ match once...", op::Priority::High);
+
+							op::log(std::string("$$ posY:").append(std::to_string(posY)).c_str(), op::Priority::High);
+
+							op::log(std::string("$$ posRElbowY:").append(std::to_string(posRElbowY)).c_str(), op::Priority::High);
+
+							op::log(std::string("$$ posRShoulderY:").append(std::to_string(posRShoulderY)).c_str(), op::Priority::High);
+							
+						}
+					}
+				}
+			}
+			
+			/*
+			for (auto it = info->begin(); it != info->cend(); it++) {
 				op::log("$$ opWrapper for loop...", op::Priority::High);
 
 				auto person = it->poseKeypoints.getSize(0);
@@ -296,14 +339,24 @@ public:
 					auto posRShoulderY = it->poseKeypoints[{0, partIdxRShoulder, 1}];
 					auto scoreRShoulder = it->poseKeypoints[{0, partIdxRShoulder, 2}];
 
-					if (posY > posRElbowY && posRElbowY > posRShoulderY) {
-						matchTimes++;
-						op::log("$$ match once...", op::Priority::High);
+					//左上角为anchor
+					if (posY < posRElbowY && posRElbowY < posRShoulderY) {
+					matchTimes++;
+					op::log("$$ match once...", op::Priority::High);
+
+					op::log(std::string("$$ posY:").append(std::to_string(posY)).c_str(), op::Priority::High);
+
+					op::log(std::string("$$ posRElbowY:").append(std::to_string(posRElbowY)).c_str(), op::Priority::High);
+
+					op::log(std::string("$$ posRShoulderY:").append(std::to_string(posRShoulderY)).c_str(), op::Priority::High);
+
 					}
 				}
 			}
+			*/
+			
 
-			std::this_thread::sleep_for(std::chrono::milliseconds{ 10 });
+			//std::this_thread::sleep_for(std::chrono::milliseconds{ 10 });
 		}
 
 	}
@@ -407,7 +460,7 @@ int openPoseDemo()
         //opWrapper.exec();
 		
 		
-		opWrapper.start();
+		//opWrapper.start();
 
 		op::log("$$ opWrapper.start", op::Priority::High);
 
@@ -418,14 +471,15 @@ int openPoseDemo()
 		opWrapper.setWorkerOutput(worker, true);
 
 		std::shared_ptr<std::vector<op::Datum>> info(new std::vector<op::Datum>());
-		
-		while (true) {
-			worker->checkAndWork(info);
-			std::this_thread::sleep_for(std::chrono::milliseconds{ 10 });
-		}
+		opWrapper.exec();
+
+		//while (true) {
+		//	//worker->checkAndWork(info);
+		//	std::this_thread::sleep_for(std::chrono::milliseconds{ 10 });
+		//}
 
 		op::log("$$ opWrapper stop...", op::Priority::High);
-		opWrapper.stop();
+		//opWrapper.stop();
 		
 		/*
 
