@@ -281,13 +281,45 @@ public:
 		//while (true)
 		{
 			//op::log("$$ opWrapper loop...", op::Priority::High);
-
+			
 			if (datumsPtr != nullptr && !datumsPtr->empty()) {
+				
 				for (auto& datum : *datumsPtr) {
 					auto person = datum.poseKeypoints.getSize(0);
 					auto numberBodyParts = datum.poseKeypoints.getSize(1);
 
 					if (person > 0 && numberBodyParts > 10) {
+						
+						//获取大概的朝向
+						
+#pragma region MyRegion
+						/*
+						int i = 0;
+						op::log(std::string("vtVecRows:").append(std::to_string(datum.vtVecRows)).c_str());
+						for (auto& vt : datum.vtVecPtr) {
+							op::log(std::string("$$ vt:").append(std::to_string(vt)).c_str());
+							i++;
+						}
+						i = 0;
+						op::log(std::string("j0VectRows:").append(std::to_string(datum.j0VecRows)).c_str());
+						for (auto& vt : datum.j0VecPtr) {
+							op::log(std::string("$$ vt:").append(std::to_string(vt)).c_str());
+						}
+						*/
+#pragma endregion
+						int i = 0;
+						if (!datum.adamTranslationPtr.empty()) {
+							for (auto translation : datum.adamTranslationPtr) {
+								op::log(std::string("$$ ").append(std::to_string(i)).append(" translation:").append(std::to_string(translation)).c_str());
+							}
+						}
+						i = 0;
+						if (!datum.adamPosePtr.empty()) {
+							for (auto adamPost : datum.adamPosePtr) {
+								op::log(std::string("$$ ").append(std::to_string(i)).append(" adamPost:").append(std::to_string(adamPost)).c_str());
+							}
+						}
+
 						//拿到右手在图像中的位置
 						auto posX = datum.poseKeypoints[{0, partIdxRWrist, 0}];
 						auto posY = datum.poseKeypoints[{0, partIdxRWrist, 1}];
